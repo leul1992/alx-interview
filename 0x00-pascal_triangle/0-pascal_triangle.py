@@ -9,7 +9,7 @@ def pascal_triangle(n):
     """
 
     if (n <= 0):
-        arr = [[]]
+        arr = []
         return arr
     # prev_array=[];
     # array=[1];
