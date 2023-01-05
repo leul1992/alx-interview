@@ -1,5 +1,11 @@
 #!/usr/bin/python3
+"""this module checks if the boxes can be unlocked
+from the values of other boxes
+"""
+
+
 def canUnlockAll(boxes):
+    """this method checkes if all boxes are opened"""
     size = len(boxes)
     checker = []
     for i in range(size):
