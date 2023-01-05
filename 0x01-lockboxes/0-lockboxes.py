@@ -15,7 +15,7 @@ def canUnlockAll(boxes):
         checker.append({"opened": False, "visited": False})
     # First array shall be opened true
     checker[0]["opened"] = True
-    # Done checkes if the any boxe is opened and visited
+    # Done checkes if any box is opened and visited
     done = False
     # Visite the boxes when the boxes are opened but not visited
     while(done is False):
