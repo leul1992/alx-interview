@@ -25,7 +25,8 @@ def canUnlockAll(boxes):
             if (checker[i]['opened'] is True and
                     checker[i]['visited'] is False):
                 for j in range(len(boxes[i])):
-                    checker[boxes[i][j]]['opened'] = True
+                    if (boxes[i][j] < len(boxes)):
+                        checker[boxes[i][j]]['opened'] = True
                 checker[i]['visited'] = True
         # Check if ther is any remaining box that is opened and not visited
         for i in range(size):
