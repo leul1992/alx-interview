@@ -5,7 +5,7 @@ def minOperations(n):
     """
     Method for minimum operations
     Parameters:
-        n (int): The number to reach
+        n (Integer): The number to reach
     Returns:
         Integer: either 0 or the number of steps
     """
