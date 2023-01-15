@@ -1,4 +1,10 @@
+""" Module finds the minimum number
+of operation to reach a result"""
+
+
 def minOperations(n):
+    """ Method for minimum operations
+    :param int n: The number to reach"""
     final = ''
     paste = 'H'
     counter = 0
