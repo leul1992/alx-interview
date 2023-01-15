@@ -13,6 +13,8 @@ def minOperations(n):
     final = ''  # the final n number of chars reached
     paste = 'H'  # the paste character
     counter = 0  # the number of steps
+    if n == 1:
+        return 0
     while len(final) < n:
         # if nothing or only one is copied
         if len(final) == 0 or len(final) == 1:
@@ -32,6 +34,4 @@ def minOperations(n):
     # after looping if length of final is not equal to n
     if len(final) != n:
         return 0
-    if n == 1:
-        counter -= 1
     return counter
