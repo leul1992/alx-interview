@@ -18,6 +18,8 @@ def minOperations(n):
         if len(final) == 0 or len(final) == 1:
             # copy the copied char on paste variable
             final += paste
+            if len(final) == 1:
+                counter += 1
         else:
             # if the length of final is multiple of n
             if n % len(final) == 0:
