@@ -28,15 +28,15 @@ try:
 
             if counter % 10 == 0:
                 print(f'File size: {totalSize}')
-                for fi in final:
-                    if final[fi] != 0:
-                        print(f"{fi}: {final[fi]}")
+                for key, value in sorted(final.items()):
+                    if value != 0:
+                        print(f"{key}: {value}")
 
 except Exception as err:
     pass
 
 finally:
     print(f'File size: {totalSize}')
-    for fi in final:
-        if final[fi] != 0:
-            print(f"{fi}: {final[fi]}")
+    for key, value in sorted(final.items()):
+        if value != 0:
+            print(f"{key}: {value}")
