@@ -17,10 +17,7 @@ final = {
 try:
     for line in sys.stdin:
         line = line.split(" ")
-        """ print(line[-1])
-        if type(line[-1]) is not int:
-            continue """
-        if len(line) > 4:
+        if len(line) == 9:
             if line[-2] in final:
                 final[line[-2]] += 1
             totalSize += int(line[-1])
@@ -37,6 +34,6 @@ except Exception as err:
 
 finally:
     print(f'File size: {totalSize}')
-    for fi in final.items:
+    for fi in final:
         if final[fi] != 0:
             print(f"{fi}: {final[fi]}")
