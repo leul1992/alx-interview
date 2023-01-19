@@ -6,6 +6,15 @@ computes metrics
 
 import sys
 
+
+def printFinal(final, totalSize):
+    """ method to print the statistics """
+    print(f'File size: {totalSize}')
+    for fi in final:
+        if final[fi] != 0:
+            print(f"{fi}: {final[fi]}")
+
+
 counter = 0
 totalSize = 0
 final = {
@@ -13,6 +22,7 @@ final = {
     '401': 0, '403': 0, '404': 0,
     '405': 0, '500': 0
  }
+
 
 try:
     for line in sys.stdin:
@@ -24,16 +34,8 @@ try:
             counter += 1
 
             if counter % 10 == 0:
-                print(f'File size: {totalSize}')
-                for fi in final:
-                    if final[fi] != 0:
-                        print(f"{fi}: {final[fi]}")
+                printFinal(final, totalSize)
 
-except Exception as err:
-    pass
-
-finally:
-    print(f'File size: {totalSize}')
-    for fi in final:
-        if final[fi] != 0:
-            print(f"{fi}: {final[fi]}")
+except KeyboardInterrupt:
+    printFinal(final, totalSize)
+    raise
