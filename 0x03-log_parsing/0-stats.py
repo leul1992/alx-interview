@@ -30,10 +30,10 @@ try:
         if len(line) == 9:
             if line[-2] in final:
                 final[line[-2]] += 1
+
             totalSize += int(line[-1])
             counter += 1
-
-            if counter != 0 and counter % 10 == 0:
+            if counter % 10 == 0:
                 printFinal(final, totalSize)
 
 except KeyboardInterrupt:
