@@ -21,12 +21,12 @@ totalSize = 0
 
 try:
     for line in sys.stdin:
-        line = line.split(" ")
-        if len(line) == 9:
-            if line[-2] in final:
-                final[line[-2]] += 1
+        fline = line.split(" ")
+        if len(fline) == 9:
+            if fline[-2] in final:
+                final[fline[-2]] += 1
 
-            totalSize += int(line[-1])
+            totalSize += int(fline[-1])
             counter += 1
             if counter % 10 == 0:
                 printFinal(final, totalSize)
