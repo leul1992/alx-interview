@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-'''a script that reads stdin line by line and computes metrics'''
+'''script that reads stdin line by line and computes metrics'''
 
 
 import sys
+
 
 def printFinal(final, totalSize):
     ''' prints the statistics'''
@@ -12,13 +13,12 @@ def printFinal(final, totalSize):
             print(f"{fi}: {final[fi]}")
 
 
+final = {'200': 0, '301': 0, '400': 0,
+         '401': 0, '403': 0, '404': 0,
+         '405': 0, '500': 0}
+
 counter = 0
 totalSize = 0
-final = {
-    '200': 0, '301': 0, '400': 0,
-    '401': 0, '403': 0, '404': 0,
-    '405': 0, '500': 0
- }
 
 try:
     for line in sys.stdin:
