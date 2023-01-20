@@ -6,10 +6,10 @@ import sys
 
 def printFinal(final, totalSize):
     """ Prints information """
-    print(f'File size: {totalSize}')
+    print('File size: {}'.format(totalSize))
     for fi in final:
         if final[fi] != 0:
-            print(f"{fi}: {final[fi]}")
+            print("{}: {}".format(fi, final[fi]))
 
 
 final = {'200': 0, '301': 0, '400': 0,
