@@ -22,21 +22,17 @@ totalSize = 0
 try:
     for line in sys.stdin:
         fline = line.split(" ")
-        try:
+        if len(fline) == 9:
             if fline[-2] in final:
                 final[fline[-2]] += 1
-        except Exception:
-            pass
 
-        try:
             totalSize += int(fline[-1])
-        except Exception:
-            pass
 
             counter += 1
             if counter % 10 == 0:
                 printFinal(final, totalSize)
 
 except KeyboardInterrupt:
+    pass
+finally:
     printFinal(final, totalSize)
-    raise
