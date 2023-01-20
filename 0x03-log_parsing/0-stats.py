@@ -1,44 +1,37 @@
 #!/usr/bin/python3
-""" script that reads stdin line by line and computes metrics """
+'''a script that reads stdin line by line and computes metrics'''
+
 
 import sys
 
+def printFinal(final, totalSize):
+    ''' prints the statistics'''
+    print(f'File size: {totalSize}')
+    for fi in final:
+        if final[fi] != 0:
+            print(f"{fi}: {final[fi]}")
 
-def printsts(dic, size):
-    """ Prints information """
-    print("File size: {:d}".format(size))
-    for i in sorted(dic.keys()):
-        if dic[i] != 0:
-            print("{}: {:d}".format(i, dic[i]))
 
-
-sts = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0,
-       "404": 0, "405": 0, "500": 0}
-
-count = 0
-size = 0
+counter = 0
+totalSize = 0
+final = {
+    '200': 0, '301': 0, '400': 0,
+    '401': 0, '403': 0, '404': 0,
+    '405': 0, '500': 0
+ }
 
 try:
     for line in sys.stdin:
-        if count != 0 and count % 10 == 0:
-            printsts(sts, size)
+        line = line.split(" ")
+        if len(line) == 9:
+            if line[-2] in final:
+                final[line[-2]] += 1
 
-        stlist = line.split()
-        count += 1
-
-        try:
-            size += int(stlist[-1])
-        except:
-            pass
-
-        try:
-            if stlist[-2] in sts:
-                sts[stlist[-2]] += 1
-        except:
-            pass
-    printsts(sts, size)
-
+            totalSize += int(line[-1])
+            counter += 1
+            if counter % 10 == 0:
+                printFinal(final, totalSize)
 
 except KeyboardInterrupt:
-    printsts(sts, size)
+    printFinal(final, totalSize)
     raise
