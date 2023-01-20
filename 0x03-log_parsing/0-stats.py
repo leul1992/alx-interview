@@ -1,37 +1,37 @@
 #!/usr/bin/python3
-""" A script that reads stdin line by line and computes metrics """
+'''a script that reads stdin line by line and computes metrics'''
+
 
 import sys
 
-
-def printFinal(final, totalSize):
-    """ method to print the statistics """
-    print(f'File size: {totalSize}')
-    for fi in final:
-        if final[fi] != 0:
-            print(f"{fi}: {final[fi]}")
-
-
+cache = {'200': 0, '301': 0, '400': 0, '401': 0,
+         '403': 0, '404': 0, '405': 0, '500': 0}
+total_size = 0
 counter = 0
-totalSize = 0
-final = {
-    '200': 0, '301': 0, '400': 0,
-    '401': 0, '403': 0, '404': 0,
-    '405': 0, '500': 0
- }
 
 try:
     for line in sys.stdin:
-        line = line.split(" ")
-        if len(line) == 9:
-            if line[-2] in final:
-                final[line[-2]] += 1
-
-            totalSize += int(line[-1])
+        line_list = line.split(" ")
+        if len(line_list) > 4:
+            code = line_list[-2]
+            size = int(line_list[-1])
+            if code in cache.keys():
+                cache[code] += 1
+            total_size += size
             counter += 1
-            if counter % 10 == 0:
-                printFinal(final, totalSize)
 
-except KeyboardInterrupt:
-    printFinal(final, totalSize)
-    raise
+        if counter == 10:
+            counter = 0
+            print('File size: {}'.format(total_size))
+            for key, value in sorted(cache.items()):
+                if value != 0:
+                    print('{}: {}'.format(key, value))
+
+except Exception as err:
+    pass
+
+finally:
+    print('File size: {}'.format(total_size))
+    for key, value in sorted(cache.items()):
+        if value != 0:
+            print('{}: {}'.format(key, value))
