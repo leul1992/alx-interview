@@ -22,7 +22,7 @@ totalSize = 0
 try:
     for line in sys.stdin:
         fline = line.split(" ")
-        if len(fline) == 9:
+        if len(fline) >= 9:
             if fline[-2] in final:
                 final[fline[-2]] += 1
 
