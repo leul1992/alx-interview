@@ -5,7 +5,7 @@ import sys
 
 
 def printFinal(final, totalSize):
-    """ Prints information """
+    """ Prints log statistics """
     print('File size: {}'.format(totalSize))
     for fi in sorted(final.keys()):
         if final[fi] != 0:
