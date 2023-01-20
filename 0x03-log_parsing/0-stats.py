@@ -5,7 +5,7 @@
 import sys
 
 def printFinal(final, totalSize):
-    '''method to print the statistics'''
+    ''' prints the statistics '''
     print(f'File size: {totalSize}')
     for fi in final:
         if final[fi] != 0:
