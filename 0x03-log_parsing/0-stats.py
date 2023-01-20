@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-""" A script that reads stdin line by line and
-computes metrics
-"""
-
+""" A script that reads stdin line by line and computes metrics """
 
 import sys
 
@@ -22,7 +19,6 @@ final = {
     '401': 0, '403': 0, '404': 0,
     '405': 0, '500': 0
  }
-
 
 try:
     for line in sys.stdin:
