@@ -1,14 +1,11 @@
 #!/usr/bin/python3
-'''
-script that reads stdin line by line and computes metrics
-'''
-
+""" script that reads stdin line by line and computes metrics """
 
 import sys
 
 
 def printFinal(final, totalSize):
-    ''' prints the statistics'''
+    """ Prints information """
     print(f'File size: {totalSize}')
     for fi in final:
         if final[fi] != 0:
