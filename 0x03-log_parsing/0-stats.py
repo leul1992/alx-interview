@@ -4,7 +4,6 @@
 
 import sys
 
-
 def printFinal(final, totalSize):
     '''method to print the statistics'''
     print(f'File size: {totalSize}')
