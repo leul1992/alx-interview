@@ -7,12 +7,16 @@ def validUTF8(data):
     binaryArr = []
     for a in data:
         binaryArr.append(bin(a)[2:])
-    for b in range(len(binaryArr)):
+    b = 0
+    for bn in range(len(binaryArr)):
         count = 0
+        if(b >= len(binaryArr)):
+            break
         if len(binaryArr[b]) > 8:
             return False
         binaryArr[b] = '0' * (8 - len(binaryArr[b])) + binaryArr[b]
         if binaryArr[b][0] == '0':
+            b += 1
             continue
         elif binaryArr[b][:3] == '110':
             count = 1
@@ -24,8 +28,7 @@ def validUTF8(data):
             return False
         for i in range(count):
             b += 1
-            if not binaryArr[b]:
-                return True
             if binaryArr[b][:2] != '10':
                 return False
+        b += 1
     return True
