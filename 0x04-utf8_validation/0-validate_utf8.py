@@ -1,4 +1,9 @@
+#!/usr/bin/python3
+""" A module that determines if a given data represents utf-8 """
+
+
 def validUTF8(data):
+    """ method to check if data is valid utf-8 """
     binaryArr = []
     for a in data:
         binaryArr.append(bin(a)[2:])
