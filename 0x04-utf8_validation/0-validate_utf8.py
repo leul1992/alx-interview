@@ -24,6 +24,8 @@ def validUTF8(data):
             return False
         for i in range(count):
             b += 1
+            if not binaryArr[b]:
+                return True
             if binaryArr[b][:2] != '10':
                 return False
     return True
