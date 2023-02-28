@@ -6,6 +6,7 @@ def goDown(row, column, grid):
     """ checks and measures the height of the perimeter """
     counter = 0
     while grid[row][column] == 1:
+        """ grid[row][column] = 0 """
         counter += 1
         row += 1
         if (row == len(grid)):
@@ -17,11 +18,19 @@ def goRight(row, column, grid):
     """ checks and measures the width of the perimeter """
     counter = 0
     while grid[row][column] == 1:
+        """ grid[row][column] = 0 """
         counter += 1
         column += 1
         if (column == len(grid[row])):
             break
     return [column - 1, 2 * counter]
+
+
+""" def checkFinal(grid):
+    for i in range(len(grid)):
+        if 1 in grid[i]:
+            return False
+    return True """
 
 
 def island_perimeter(grid):
@@ -72,4 +81,5 @@ def island_perimeter(grid):
                     res = goRight(res[0], grid[res[0]].index(1), grid)
                     counter += res[1]
                 break
+
     return counter
