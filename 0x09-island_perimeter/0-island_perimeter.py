@@ -13,7 +13,7 @@ def check_nehbour(row, index, grid):
         nehbours += 1
     if row - 1 < 0:
         nehbours += 1
-    
+
     if index + 1 < len(grid[row]) and grid[row][index + 1] == 0:
         nehbours += 1
     if index - 1 >= 0 and grid[row][index - 1] == 0:
