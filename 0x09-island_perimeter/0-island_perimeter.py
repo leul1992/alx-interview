@@ -5,9 +5,15 @@
 def check_nehbour(row, index, grid):
     """ check the number of nehbours the square land has """
     nehbours = 0
-    if index + 1 >= len(grid[row]) or index - 1 < 0 or\
-            row + 1 >= len(grid) or row - 1 < 0:
+    if index - 1 < 0:
         nehbours += 1
+    if index + 1 >= len(grid[row]):
+        nehbours += 1
+    if row + 1 >= len(grid):
+        nehbours += 1
+    if row - 1 < 0:
+        nehbours += 1
+    
     if index + 1 < len(grid[row]) and grid[row][index + 1] == 0:
         nehbours += 1
     if index - 1 >= 0 and grid[row][index - 1] == 0:
@@ -26,7 +32,7 @@ def island_perimeter(grid):
         if 1 in grid[row]:
             index = grid[row].index(1)
             counter += check_nehbour(row, index, grid)
-            while grid[row][index + 1]:
+            while index + 1 < len(grid[row]):
                 index += 1
                 if grid[row][index] != 1:
                     break
