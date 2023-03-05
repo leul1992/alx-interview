@@ -1,31 +1,19 @@
 #!/usr/bin/python3
-""" module finds and return the perimeter of the given list """
-
-
-def check_nehbour(row, index, grid):
-    """ check the number of nehbours the square land has """
-    nehbours = 0
-    if grid[row][index + 1] is not None and grid[row][index + 1] == 0:
-        nehbours += 1
-    if grid[row][index - 1] is not None and grid[row][index - 1] == 0:
-        nehbours += 1
-    if grid[row + 1][index] is not None and grid[row + 1][index] == 0:
-        nehbours += 1
-    if grid[row - 1][index] is not None and grid[row - 1][index] == 0:
-        nehbours += 1
-    return nehbours
+"""
+Island Perimeter:
+    returns the perimeter of the island described in grid
+"""
 
 
 def island_perimeter(grid):
-    """ method to return the perimeter if it exists """
-    counter = 0
-    for row in range(len(grid)):
-        if 1 in grid[row]:
-            index = grid[row].index(1)
-            counter += check_nehbour(row, index, grid)
-            while grid[row][index + 1]:
-                index += 1
-                if grid[row][index] != 1:
-                    break
-                counter += check_nehbour(row, index, grid)
-    return counter
+    """island perimenter function"""
+    perimeter = 0
+    for i in range(len(grid)):
+        for j in range(len(grid[i])):
+            if grid[i][j] == 1:
+                perimeter += 4
+                if i > 0 and grid[i-1][j] == 1:
+                    perimeter -= 2
+                if j > 0 and grid[i][j-1] == 1:
+                    perimeter -= 2
+    return perimeter
