@@ -35,6 +35,6 @@ def island_perimeter(grid):
             while index + 1 < len(grid[row]):
                 index += 1
                 if grid[row][index] != 1:
-                    break
+                    continue
                 counter += check_nehbour(row, index, grid)
     return counter
