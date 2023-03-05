@@ -3,6 +3,7 @@
 
 
 def check_nehbour(row, index, grid):
+    """ check the number of nehbours the square land has """
     nehbours = 0
     if grid[row][index + 1] is not None and grid[row][index + 1] == 0:
         nehbours += 1
@@ -13,6 +14,7 @@ def check_nehbour(row, index, grid):
     if grid[row - 1][index] is not None and grid[row - 1][index] == 0:
         nehbours += 1
     return nehbours
+
 
 def island_perimeter(grid):
     """ method to return the perimeter if it exists """
