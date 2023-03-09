@@ -29,7 +29,7 @@ def isWinner(x, nums):
     """ method returns the winner of the rounds """
     maria = 0
     ben = 0
-    if x is None or nums is None or x == 0 or nums is []:
+    if x is None or nums is None or x == 0 or nums == []:
         return None
     for rou in range(x):
         prime = getAllPrime(nums[rou])
